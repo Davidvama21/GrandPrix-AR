@@ -52,10 +52,20 @@ public class CarController : MonoBehaviour
     
     // Mueve coche adelante o atrás en función del valor value [-1, 1] un máximo de acceleration
     void Move (float value){
-        rb.AddForce (transform.forward * acceleration * value, ForceMode.Acceleration);
 
+        float currentSpeed = Vector3.Dot(transform.forward, rb.velocity);
+        float addedSpeed = acceleration * value;
+        float finalSpeed = currentSpeed + addedSpeed;
+
+        if (finalSpeed >= -MaxSpeed && finalSpeed <= MaxSpeed) // Si no vamos a acelerar más del tope, aplica la fuerza correspondiente
+           rb.AddForce (transform.forward * addedSpeed, ForceMode.Acceleration);
+
+        // En caso contrario, en función de su signo, capamos aumento al máximo negativo o positivo
+        else if (finalSpeed < 0)
+            rb.AddForce (transform.forward * - (currentSpeed + MaxSpeed), ForceMode.Acceleration);
         
-
+        else
+            rb.AddForce (transform.forward * (MaxSpeed - currentSpeed), ForceMode.Acceleration);
 
         //currentSpeed += transform.forward * acceleration * value * Time.deltaTime;
 
