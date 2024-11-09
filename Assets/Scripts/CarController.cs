@@ -7,6 +7,7 @@ public class CarController : MonoBehaviour
 {
     //public float acceleration = 50; // velocidad a la que aceleramos si nos movemos
     public float motorTorque = 2000;
+    public float brakeTorque = 2000; // para frenar
     public float maxSpeed = 15;
     public float turnAngle = 30; // parámetro que indica máximo giro
     public float turnAngleAtMaxSpeed = 10;
@@ -65,8 +66,18 @@ public class CarController : MonoBehaviour
         float currentTurnRange = Mathf.Lerp(turnAngle, turnAngleAtMaxSpeed, speedFactor);
 
         foreach (var wheel in wheels){
-            
-            Move (movement, wheel, currentMotorTorque);
+
+            if ( Mathf.Sign(movement) == Mathf.Sign(currentSpeed) ){ // si acelerando
+
+                if (wheel.motorized)
+                    Move (movement, wheel, currentMotorTorque);
+                
+                wheel.WheelCollider.brakeTorque = 0; // necesario por si partimos de estado de frenado
+
+            }else{
+                Brake ( Mathf.Abs(value), wheel);
+            }
+
             
             if (wheel.steerable){
                 if (movement >= 0)
@@ -106,6 +117,13 @@ public class CarController : MonoBehaviour
         
 
         // OJO --> currentSpeed = Vector3.ClampMagnitude (currentSpeed, MaxSpeed); // capar velocidad máxima, para que no vaya más allá de MaxSpeed
+    }
+
+    // Hace que la rueda frene, el grado que indique value (¡debe ser positivo!)
+    void Brake (float value, WheelController wheel) {
+
+        wheel.WheelCollider.brakeTorque = value * brakeTorque;
+        wheel.WheelCollider.motorTorque = 0; // para que no acelere a la vez
     }
 
     // Hace girar rueda del coche en función del valor value [-1, 1] y otros parámetros
