@@ -128,26 +128,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -6886066687445569438, guid: 5e0cce3a6ae629748851572494c27fe7, type: 3}
   m_PrefabInstance: {fileID: 1811540922}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &389425807 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6181968916259484543, guid: 5619f478134d9da40b6f708d856e2b9b, type: 3}
-  m_PrefabInstance: {fileID: 892780216380158067}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &389425810
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 389425807}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bf98759bf3fcfb488504ad164716ab9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  steerable: 0
-  motorized: 0
-  WheelCollider: {fileID: 0}
 --- !u!1 &391428588
 GameObject:
   m_ObjectHideFlags: 0
@@ -984,6 +964,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 820350947164188293, guid: 5619f478134d9da40b6f708d856e2b9b, type: 3}
+      propertyPath: m_ForwardFriction.m_Stiffness
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2466846014376495638, guid: 5619f478134d9da40b6f708d856e2b9b, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -1028,6 +1012,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3116076947028436394, guid: 5619f478134d9da40b6f708d856e2b9b, type: 3}
+      propertyPath: m_ForwardFriction.m_Stiffness
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3753415247305657729, guid: 5619f478134d9da40b6f708d856e2b9b, type: 3}
+      propertyPath: brakeScale
+      value: 0.175
+      objectReference: {fileID: 0}
     - target: {fileID: 6161649699494958579, guid: 5619f478134d9da40b6f708d856e2b9b, type: 3}
       propertyPath: m_Name
       value: Car 1
@@ -1036,9 +1028,17 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6339058354400624486, guid: 5619f478134d9da40b6f708d856e2b9b, type: 3}
+      propertyPath: m_ForwardFriction.m_Stiffness
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7405194721650853029, guid: 5619f478134d9da40b6f708d856e2b9b, type: 3}
       propertyPath: m_Name
       value: Car Body
+      objectReference: {fileID: 0}
+    - target: {fileID: 9172505424315009461, guid: 5619f478134d9da40b6f708d856e2b9b, type: 3}
+      propertyPath: m_ForwardFriction.m_Stiffness
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5619f478134d9da40b6f708d856e2b9b, type: 3}

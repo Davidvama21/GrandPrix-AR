@@ -6,8 +6,11 @@ using UnityEngine;
 public class CarController : MonoBehaviour
 {
     //public float acceleration = 50; // velocidad a la que aceleramos si nos movemos
-    public float motorTorque = 2000;
+   
     public float brakeTorque = 2000; // para frenar
+    public float brakeScale = 0.5f;  // nivel de frenado si no hay input (>= 0!)
+    
+    public float motorTorque = 2000;
     public float maxSpeed = 15;
     public float turnAngle = 30; // parámetro que indica máximo giro
     public float turnAngleAtMaxSpeed = 10;
@@ -65,29 +68,63 @@ public class CarController : MonoBehaviour
         // (the car steers more gently at top speed)
         float currentTurnRange = Mathf.Lerp(turnAngle, turnAngleAtMaxSpeed, speedFactor);
 
-        foreach (var wheel in wheels){
+        bool isAccelerating = (movement != 0f) && (Mathf.Sign(movement) == Mathf.Sign(currentSpeed) ); // si movimiento va a favor de la velocidad (!= 0f porque el sign coge 0 como positivo)
 
-            if ( Mathf.Sign(movement) == Mathf.Sign(currentSpeed) ){ // si acelerando
+        // Vamos a tratar el giro de las ruedas de manera diferente en función del sentido de desplazamiento; las que marcamos como forwardSteerable girarán
+        // si nos movemos hacia adelante (>= 0), y las otras en el caso de movernos hacia atrás.
+        // En cualquiera de los dos casos, trataremos igual la aceleración de las ruedas.
 
-                if (wheel.motorized)
-                    Move (movement, wheel, currentMotorTorque);
-                
-                wheel.WheelCollider.brakeTorque = 0; // necesario por si partimos de estado de frenado
-
-            }else{
-                Brake ( Mathf.Abs(value), wheel);
-            }
-
+        if (currentSpeed >= 0){ // hacia adelante
             
-            if (wheel.steerable){
-                if (movement >= 0)
+            foreach (var wheel in wheels){
+
+                if (isAccelerating){
+
+                    if (wheel.motorized)
+                        Move (movement, wheel, currentMotorTorque);
+                    
+                    wheel.WheelCollider.brakeTorque = 0; // necesario por si partimos de estado de frenado
+
+                }else if (movement != 0f){
+                    Brake ( Mathf.Abs(movement), wheel);
+
+                }else {
+                    Brake (brakeScale, wheel);
+                }
+
+
+                if (wheel.forwardSteerable){
                     Turn (turning, wheel, currentTurnRange);
-                else
-                    Turn (-turning, wheel, currentTurnRange); // para que al ir para atrás vaya en sentido giro opuesto
+                }else
+                    wheel.WheelCollider.steerAngle = 0; // por si venimos de ir hacia atrás, para que esta rueda no interfiera con el desplazamiento
             }
-     
+
+        }else{
+            
+            foreach (var wheel in wheels){
+
+                if (isAccelerating){
+
+                    if (wheel.motorized)
+                        Move (movement, wheel, currentMotorTorque);
+                    
+                    wheel.WheelCollider.brakeTorque = 0; // necesario por si partimos de estado de frenado
+
+                }else if (movement != 0f){
+                    Brake ( Mathf.Abs(movement), wheel);
+
+                }else {
+                    Brake (brakeScale, wheel);
+                }
+
+
+                if (!wheel.forwardSteerable){
+                    Turn (turning, wheel, currentTurnRange);
+                }else
+                    wheel.WheelCollider.steerAngle = 0; // por si venimos de ir hacia adelante, para que esta rueda no interfiera con el desplazamiento
+            }
         }
-   
+
     }
 
     

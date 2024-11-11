@@ -387,13 +387,13 @@ WheelCollider:
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.5
-    m_Stiffness: 1
+    m_Stiffness: 2
   m_SidewaysFriction:
     m_ExtremumSlip: 0.2
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.5
     m_AsymptoteValue: 0.75
-    m_Stiffness: 1
+    m_Stiffness: 2
   m_Enabled: 1
 --- !u!114 &6686224178425237238
 MonoBehaviour:
@@ -407,8 +407,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bf98759bf3fcfb488504ad164716ab9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  steerable: 0
-  motorized: 0
+  forwardSteerable: 0
+  motorized: 1
   WheelCollider: {fileID: 0}
 --- !u!1 &3710326402019220529
 GameObject:
@@ -471,7 +471,7 @@ WheelCollider:
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.5
     m_AsymptoteValue: 0.75
-    m_Stiffness: 1
+    m_Stiffness: 2
   m_Enabled: 1
 --- !u!114 &5206843858572163565
 MonoBehaviour:
@@ -485,8 +485,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bf98759bf3fcfb488504ad164716ab9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  steerable: 1
-  motorized: 0
+  forwardSteerable: 1
+  motorized: 1
   WheelCollider: {fileID: 0}
 --- !u!1 &6161649699494958579
 GameObject:
@@ -558,6 +558,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef5cf0676d7c7cc45919cc4edc11cc3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  brakeTorque: 2000
+  brakeScale: 0.5
   motorTorque: 2000
   maxSpeed: 15
   turnAngle: 30
@@ -624,7 +626,7 @@ WheelCollider:
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.5
     m_AsymptoteValue: 0.75
-    m_Stiffness: 1
+    m_Stiffness: 2
   m_Enabled: 1
 --- !u!114 &2228472611423526971
 MonoBehaviour:
@@ -638,8 +640,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bf98759bf3fcfb488504ad164716ab9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  steerable: 1
-  motorized: 0
+  forwardSteerable: 1
+  motorized: 1
   WheelCollider: {fileID: 0}
 --- !u!1 &6496285161453318828
 GameObject:
@@ -696,13 +698,13 @@ WheelCollider:
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.5
-    m_Stiffness: 1
+    m_Stiffness: 2
   m_SidewaysFriction:
     m_ExtremumSlip: 0.2
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.5
     m_AsymptoteValue: 0.75
-    m_Stiffness: 1
+    m_Stiffness: 2
   m_Enabled: 1
 --- !u!114 &9075094410619178276
 MonoBehaviour:
@@ -716,8 +718,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bf98759bf3fcfb488504ad164716ab9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  steerable: 0
-  motorized: 0
+  forwardSteerable: 0
+  motorized: 1
   WheelCollider: {fileID: 0}
 --- !u!1 &7405194721650853029
 GameObject:
