@@ -499,6 +499,7 @@ GameObject:
   - component: {fileID: 2466846014376495638}
   - component: {fileID: 7620474284379412313}
   - component: {fileID: 3753415247305657729}
+  - component: {fileID: 6895990393029883320}
   m_Layer: 0
   m_Name: Car
   m_TagString: Untagged
@@ -565,6 +566,18 @@ MonoBehaviour:
   turnAngle: 30
   turnAngleAtMaxSpeed: 10
   centreOfGravityOffset: -1
+--- !u!114 &6895990393029883320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6161649699494958579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af80b1bb50019c6469af5b5e472c453a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6181968916259484543
 GameObject:
   m_ObjectHideFlags: 0
