@@ -560,7 +560,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   brakeTorque: 2000
-  brakeScale: 0.5
+  brakeScale: 0.175
   motorTorque: 2000
   maxSpeed: 15
   turnAngle: 30
