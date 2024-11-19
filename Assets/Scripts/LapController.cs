@@ -9,11 +9,14 @@ public class LapController : MonoBehaviour
 
     private float previousXPos; // posición x previa del coche (para checkeos de colisión)
 
+    private TrackController trackInfo; // para ver el tope de vueltas
+
     // Start is called before the first frame update
     void Start()
     {
         goingForward = false; // porque al principio estamos parados, DETRÁS de línea de meta
         laps = 0;
+        trackInfo = transform.parent.transform.GetComponent<TrackController>();
 
         previousXPos = transform.position.x;
     }
@@ -32,10 +35,15 @@ public class LapController : MonoBehaviour
         if (previousXPos < other.transform.position.x){ // venías de la izquierda
 
             if (goingForward){
-                ++laps;
-                Debug.Log ("Laps: " + laps);
-            }
+                if (laps < trackInfo.totalLaps){
+                    ++laps;
+                    Debug.Log ("Laps: " + laps);
 
+                    if (laps == trackInfo.totalLaps)
+                        Debug.Log ("Completed total laps");
+                }
+                
+            }
         }
 
         goingForward = false;
