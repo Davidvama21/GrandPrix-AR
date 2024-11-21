@@ -6,17 +6,22 @@ public class LapController : MonoBehaviour
 {
     private bool goingForward; // por lo general querrá decir que has salido por delante de la línea de meta
     private int laps;
+    private float currentLapTime;
+    private float[] lapTimes; // para guardar los tiempos invertidos en cada vuelta
 
     private float previousXPos; // posición x previa del coche (para checkeos de colisión)
 
     private TrackController trackInfo; // para ver el tope de vueltas
+    
 
     // Start is called before the first frame update
     void Start()
     {
         goingForward = false; // porque al principio estamos parados, DETRÁS de línea de meta
         laps = 0;
+        currentLapTime = 0f;
         trackInfo = transform.parent.transform.GetComponent<TrackController>();
+        lapTimes = new float [trackInfo.totalLaps]; // ponemos tantas posiciones como vueltas a considerar
 
         previousXPos = transform.position.x;
     }
@@ -24,6 +29,8 @@ public class LapController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        currentLapTime += Time.deltaTime;
+
         previousXPos = transform.position.x; // actualizamos posición x para tener la previa en siguiente frame
     }
 
@@ -36,11 +43,16 @@ public class LapController : MonoBehaviour
 
             if (goingForward){
                 if (laps < trackInfo.totalLaps){
+                    lapTimes[laps] = currentLapTime; // guardamos tiempo actual como tiempo de la última vuelta pasada, cuya posición coincide con laps
+
                     ++laps;
                     Debug.Log ("Laps: " + laps);
+                    Debug.Log ("Last lap took " + currentLapTime + " seconds");
 
                     if (laps == trackInfo.totalLaps)
                         Debug.Log ("Completed total laps");
+                    else
+                        currentLapTime = 0f; // reseteamos tiempo para siguiente vuelta
                 }
                 
             }
