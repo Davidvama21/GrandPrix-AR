@@ -40,6 +40,7 @@ public class CarController : MonoBehaviour
     void Update()
     {
         // A REVISAR: Prueba de ver si avanzamos o retrocedemos
+        /*
         if (Input.GetKey(KeyCode.Z) )
            movement = 1; // avanzar
         
@@ -49,7 +50,8 @@ public class CarController : MonoBehaviour
         else
             movement = 0; // nada
 
-        turning = Input.GetAxis("Horizontal");        
+        turning = Input.GetAxis("Horizontal");
+        */        
     }
 
     // ¡¡Para las físicas!!
@@ -171,5 +173,14 @@ public class CarController : MonoBehaviour
 
         //rb.AddTorque (Vector3.up * value * currentSpeed * steerAngle); // giramos en función de magnitud de avance y parámetro steerAngle
 
+    }
+
+    // Funciones para modificar movement, turning desde fuera //
+    public void setMovement (float value){
+        movement = value;
+    }
+
+    public void setTurning (float value){
+        turning = value;
     }
 }
