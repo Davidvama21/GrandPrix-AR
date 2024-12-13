@@ -1,3 +1,5 @@
+
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityAndroidBluetooth;
@@ -11,6 +13,9 @@ public class BServerController : MonoBehaviour
     private CarController car; // para tocar inputs
     BluetoothServer server; // para comunicación
 
+    private float timer;
+    bool printDiscovered;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,14 +24,31 @@ public class BServerController : MonoBehaviour
         // inicio comunicación //
         server = new BluetoothServer();
         server.Start();
+        Bluetooth.SearchDevices();
 
         server.MessageReceived += loadInputs; // asignamos función al evento de recepción de mensaje para poder tratarlo
+
+        timer = 0;
+        printDiscovered = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        timer += Time.deltaTime;
+
+        if (timer >= 10 && printDiscovered) {
+
+            List<BluetoothDevice> devices = Bluetooth.GetDiscoveredDevices();
+
+            Debug.Log("Bluetooth devices found:");
+            foreach (BluetoothDevice device in devices) {
+
+                Debug.Log(device.address);
+            
+            }
+            printDiscovered = false;
+        }
     }
     
     void OnApplicationQuit(){

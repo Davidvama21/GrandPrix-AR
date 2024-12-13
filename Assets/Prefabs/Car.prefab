@@ -500,7 +500,7 @@ GameObject:
   - component: {fileID: 7620474284379412313}
   - component: {fileID: 3753415247305657729}
   - component: {fileID: 6895990393029883320}
-  - component: {fileID: 1600190379765609948}
+  - component: {fileID: 5625363972242019832}
   m_Layer: 0
   m_Name: Car
   m_TagString: Untagged
@@ -579,7 +579,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af80b1bb50019c6469af5b5e472c453a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1600190379765609948
+--- !u!114 &5625363972242019832
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -588,10 +588,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 6161649699494958579}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a12e6c3003ff83b45810b35e055cff24, type: 3}
+  m_Script: {fileID: 11500000, guid: a5a0296d558de2842bd770ac1be17c63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clientAddress: 88548E583BB8
+  leftButton: {fileID: 0}
+  rightButton: {fileID: 0}
+  forwardButton: {fileID: 0}
+  backwardsButton: {fileID: 0}
 --- !u!1 &6181968916259484543
 GameObject:
   m_ObjectHideFlags: 0
