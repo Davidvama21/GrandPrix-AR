@@ -13,6 +13,10 @@ public class ButtonState : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         pressed = false;
     }
 
+    void OnDisable() // Para evitar fallos
+    {
+        pressed = false;
+    }
 
     public void OnPointerDown(PointerEventData pointerEventData){
         pressed = true;
