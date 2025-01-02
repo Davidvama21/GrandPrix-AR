@@ -43,7 +43,9 @@ public class TrackController : MonoBehaviour
     // Método para crear el coche //
     void setupCar() {
 
-        instantiatedCar = Instantiate(carPrefab, transform.position + startingCarPosition, Quaternion.Euler(startingCarRotation), transform); // crea el coche COMO HIJO DEL TRACK con posición relativa al track y su rotación
+        instantiatedCar = Instantiate(carPrefab, transform.position + new Vector3 (transform.localScale.x * startingCarPosition.x, transform.localScale.y * startingCarPosition.y, transform.localScale.z * startingCarPosition.z),
+                          Quaternion.Euler(startingCarRotation), transform); // crea el coche COMO HIJO DEL TRACK con posición relativa al track y su rotación
+
 
         // Ahora inicializamos los botones que darán su input, para poder controlarlo
         InputController inputInfo = instantiatedCar.transform.GetComponent<InputController>();

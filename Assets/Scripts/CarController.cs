@@ -5,7 +5,6 @@ using UnityEngine;
 [RequireComponent( typeof(Rigidbody) )]
 public class CarController : MonoBehaviour
 {
-    //public float acceleration = 50; // velocidad a la que aceleramos si nos movemos
    
     public float brakeTorque = 2000; // para frenar
     public float brakeScale = 0.5f;  // nivel de frenado si no hay input (>= 0!)
@@ -18,7 +17,6 @@ public class CarController : MonoBehaviour
     public float centreOfGravityOffset = -1f;
 
 
-    // --> private Vector3 currentSpeed; // (en dirección movimiento)
     private float movement; // indicará si debemos movernos, para iniciar acción en FixedUpdate
     private float turning; // indicará si debemos girar, para hacer acción tambien en FixedUpdate 
     private Rigidbody rb;
@@ -29,7 +27,7 @@ public class CarController : MonoBehaviour
     void Start()
     {
         movement = turning = 0;
-        rb = GetComponent<Rigidbody>(); // ??
+        rb = GetComponent<Rigidbody>();
         wheels = GetComponentsInChildren<WheelController>();
 
         // Ajustar centro de masa verticalmente, para evitar que el coche ruede
