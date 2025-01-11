@@ -944,6 +944,7 @@ MonoBehaviour:
   carPrefab: {fileID: 6161649699494958579, guid: 5619f478134d9da40b6f708d856e2b9b, type: 3}
   startingCarPosition: {x: 18.08, y: 67.82, z: -122.84}
   startingCarRotation: {x: 0, y: 90, z: 0}
+  targetFound: 0
 --- !u!1001 &309827194
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2431,10 +2432,34 @@ MonoBehaviour:
     m_RotationOrder: 4
   OnTargetFound:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 306491670}
+        m_TargetAssemblyTypeName: TrackController, Assembly-CSharp
+        m_MethodName: enableCar
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   OnTargetLost:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 306491670}
+        m_TargetAssemblyTypeName: TrackController, Assembly-CSharp
+        m_MethodName: enableCar
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &982494416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5759,7 +5784,7 @@ MonoBehaviour:
   m_Script: {fileID: -1826476478, guid: 1e108ae5f2133934f948edded555f03e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mWorldCenterMode: 0
+  mWorldCenterMode: 1
   mWorldCenter: {fileID: 0}
 --- !u!81 &2031147515
 AudioListener:
@@ -5881,6 +5906,10 @@ PrefabInstance:
     - target: {fileID: 6161649699494958579, guid: 5619f478134d9da40b6f708d856e2b9b, type: 3}
       propertyPath: m_Name
       value: Car
+      objectReference: {fileID: 0}
+    - target: {fileID: 6161649699494958579, guid: 5619f478134d9da40b6f708d856e2b9b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5619f478134d9da40b6f708d856e2b9b, type: 3}

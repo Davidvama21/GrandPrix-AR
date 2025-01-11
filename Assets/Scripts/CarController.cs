@@ -128,32 +128,10 @@ public class CarController : MonoBehaviour
     }
 
     
-    // Mueve rueda coche adelante o atrás en función del valor value [-1, 1] un máximo de acceleration y hasta una velocidad MaxSpeed
+    // Mueve rueda coche adelante o atrás en función del valor value [-1, 1] y otros parámetros
     void Move (float value, WheelController wheel, float currentMotorTorque){
 
         wheel.WheelCollider.motorTorque = value * currentMotorTorque;
-
-
-        /*
-        float addedSpeed = acceleration * value;
-        float finalSpeed = currentSpeed + addedSpeed;
-
-        if (finalSpeed >= -MaxSpeed && finalSpeed <= MaxSpeed) // Si no vamos a acelerar más del tope, aplica la fuerza correspondiente
-           rb.AddForce (transform.forward * addedSpeed, ForceMode.Acceleration);
-
-        // En caso contrario, en función de su signo, capamos aumento al máximo negativo o positivo
-        else if (finalSpeed < 0)
-            rb.AddForce (transform.forward * - (currentSpeed + MaxSpeed), ForceMode.Acceleration);
-        
-        else
-            rb.AddForce (transform.forward * (MaxSpeed - currentSpeed), ForceMode.Acceleration);
-
-        */
-
-        //currentSpeed += transform.forward * acceleration * value * Time.deltaTime;
-        
-
-        // OJO --> currentSpeed = Vector3.ClampMagnitude (currentSpeed, MaxSpeed); // capar velocidad máxima, para que no vaya más allá de MaxSpeed
     }
 
     // Hace que la rueda frene, el grado que indique value (¡debe ser positivo!)
@@ -167,10 +145,6 @@ public class CarController : MonoBehaviour
     void Turn (float value, WheelController wheel, float currentTurnRange){
 
         wheel.WheelCollider.steerAngle = value * currentTurnRange;
-        //float currentSpeed = Vector3.Dot(transform.forward, rb.velocity);
-
-        //rb.AddTorque (Vector3.up * value * currentSpeed * steerAngle); // giramos en función de magnitud de avance y parámetro steerAngle
-
     }
 
     // Funciones para modificar movement, turning desde fuera //
