@@ -44,12 +44,14 @@ public class TrackController : MonoBehaviour
     // Método para crear el coche //
     void setupCar() {
 
-        instantiatedCar = Instantiate(carPrefab, transform.position + new Vector3 (transform.localScale.x * startingCarPosition.x, transform.localScale.y * startingCarPosition.y, transform.localScale.z * startingCarPosition.z),
+        instantiatedCar = Instantiate(carPrefab, transform.position + new Vector3 (
+                          transform.localScale.x * startingCarPosition.x,
+                          transform.localScale.y * startingCarPosition.y,
+                          transform.localScale.z * startingCarPosition.z),
                           Quaternion.Euler(startingCarRotation), transform); // crea el coche COMO HIJO DEL TRACK con posición relativa al track (considerando su escalado) y su rotación
 
         // Escalamos los valores de sus scripts y componentes para que se adapten al tamaño del circuito (usaremos escala en x del track para ésto)
         // 1. Parámetros CarController
-        /*
         CarController movementInfo = instantiatedCar.transform.GetComponent<CarController>();
         movementInfo.brakeTorque *= transform.localScale.x;
         movementInfo.brakeScale *= transform.localScale.x;
@@ -98,7 +100,7 @@ public class TrackController : MonoBehaviour
             wheelSFriction.stiffness *= transform.localScale.x;
             wheelInfo.sidewaysFriction = wheelSFriction;
         }
-        */
+
         // Ahora inicializamos los botones que darán su input, para poder controlarlo
         InputController inputInfo = instantiatedCar.transform.GetComponent<InputController>();
         inputInfo.horizontalTurning = horizontalTurning;
@@ -127,7 +129,8 @@ public class TrackController : MonoBehaviour
 
         // Ahora pondremos el mejor tiempo con formato de cronómetro en la interfaz de resultados
         TimeSpan timeInUnits = TimeSpan.FromSeconds(bestTime);
-        parentResultsUI.transform.GetChild(1).GetComponent<TMP_Text>().text = string.Format("{0:00}:{1:00}:{2:000}", timeInUnits.Minutes, timeInUnits.Seconds, timeInUnits.Milliseconds);
+        parentResultsUI.transform.GetChild(1).GetComponent<TMP_Text>().text 
+        = string.Format("{0:00}:{1:00}:{2:000}", timeInUnits.Minutes, timeInUnits.Seconds, timeInUnits.Milliseconds);
     }
 
     // Reinicia la carrera, mostrando de nuevo interfaz de control // <- desde resultados
