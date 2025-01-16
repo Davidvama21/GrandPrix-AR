@@ -4601,7 +4601,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1661413401}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 54.7, y: 114.1, z: -8.6}
+  m_LocalPosition: {x: 1.75, y: -0.8, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5841,6 +5841,18 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2466846014376495638, guid: 5619f478134d9da40b6f708d856e2b9b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 2466846014376495638, guid: 5619f478134d9da40b6f708d856e2b9b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 2466846014376495638, guid: 5619f478134d9da40b6f708d856e2b9b, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 2466846014376495638, guid: 5619f478134d9da40b6f708d856e2b9b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.7493877
       objectReference: {fileID: 0}
@@ -5885,16 +5897,44 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3753415247305657729, guid: 5619f478134d9da40b6f708d856e2b9b, type: 3}
+      propertyPath: maxSpeed
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3753415247305657729, guid: 5619f478134d9da40b6f708d856e2b9b, type: 3}
       propertyPath: brakeScale
       value: 0.175
       objectReference: {fileID: 0}
+    - target: {fileID: 3753415247305657729, guid: 5619f478134d9da40b6f708d856e2b9b, type: 3}
+      propertyPath: brakeTorque
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3753415247305657729, guid: 5619f478134d9da40b6f708d856e2b9b, type: 3}
+      propertyPath: motorTorque
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3753415247305657729, guid: 5619f478134d9da40b6f708d856e2b9b, type: 3}
+      propertyPath: centreOfGravityOffset
+      value: -0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 5625363972242019832, guid: 5619f478134d9da40b6f708d856e2b9b, type: 3}
+      propertyPath: forwardButton
+      value: 
+      objectReference: {fileID: 459799432}
+    - target: {fileID: 5625363972242019832, guid: 5619f478134d9da40b6f708d856e2b9b, type: 3}
+      propertyPath: backwardsButton
+      value: 
+      objectReference: {fileID: 1228172944}
+    - target: {fileID: 5625363972242019832, guid: 5619f478134d9da40b6f708d856e2b9b, type: 3}
+      propertyPath: horizontalTurning
+      value: 
+      objectReference: {fileID: 1889901806}
     - target: {fileID: 6161649699494958579, guid: 5619f478134d9da40b6f708d856e2b9b, type: 3}
       propertyPath: m_Name
-      value: Car 1
+      value: Car 1 downscaled
       objectReference: {fileID: 0}
     - target: {fileID: 6161649699494958579, guid: 5619f478134d9da40b6f708d856e2b9b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6339058354400624486, guid: 5619f478134d9da40b6f708d856e2b9b, type: 3}
       propertyPath: m_ForwardFriction.m_Stiffness
@@ -5903,6 +5943,14 @@ PrefabInstance:
     - target: {fileID: 7405194721650853029, guid: 5619f478134d9da40b6f708d856e2b9b, type: 3}
       propertyPath: m_Name
       value: Car Body
+      objectReference: {fileID: 0}
+    - target: {fileID: 9172505424315009461, guid: 5619f478134d9da40b6f708d856e2b9b, type: 3}
+      propertyPath: m_Radius
+      value: 0.307
+      objectReference: {fileID: 0}
+    - target: {fileID: 9172505424315009461, guid: 5619f478134d9da40b6f708d856e2b9b, type: 3}
+      propertyPath: m_SuspensionDistance
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 9172505424315009461, guid: 5619f478134d9da40b6f708d856e2b9b, type: 3}
       propertyPath: m_ForwardFriction.m_Stiffness

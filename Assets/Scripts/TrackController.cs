@@ -49,7 +49,23 @@ public class TrackController : MonoBehaviour
                           transform.localScale.y * startingCarPosition.y,
                           transform.localScale.z * startingCarPosition.z),
                           Quaternion.Euler(startingCarRotation), transform); // crea el coche COMO HIJO DEL TRACK con posición relativa al track (considerando su escalado) y su rotación
+                          
+        
+        /*
+        // Hardcodeamos parámetros  del script de movimiento (para ver si va más lento)
+        CarController movementInfo = instantiatedCar.transform.GetComponent<CarController>();
+        movementInfo.brakeTorque = 2000;
+        movementInfo.brakeScale = 0.175f;
+        movementInfo.motorTorque = 2000;
+        movementInfo.maxSpeed = 15; // Puedes dejarlo, pero hay que alterar aceleración
+        movementInfo.turnAngle = 30; // NO LO TOCARÍA
+        movementInfo.turnAngleAtMaxSpeed = 10; // NO LO TOCARÍA
+        movementInfo.centreOfGravityOffset = -1;
 
+        O ...
+        */
+
+        /*
         // Escalamos los valores de sus scripts y componentes para que se adapten al tamaño del circuito (usaremos escala en x del track para ésto)
         // 1. Parámetros CarController
         CarController movementInfo = instantiatedCar.transform.GetComponent<CarController>();
@@ -60,6 +76,9 @@ public class TrackController : MonoBehaviour
         movementInfo.turnAngle *= transform.localScale.x;
         movementInfo.turnAngleAtMaxSpeed *= transform.localScale.x;
         movementInfo.centreOfGravityOffset *= transform.localScale.x;
+        */
+
+        /*
 
         // 2. Parámetros Rigidbody
         Rigidbody physicsInfo = instantiatedCar.transform.GetComponent<Rigidbody>();
@@ -100,6 +119,7 @@ public class TrackController : MonoBehaviour
             wheelSFriction.stiffness *= transform.localScale.x;
             wheelInfo.sidewaysFriction = wheelSFriction;
         }
+        */
 
         // Ahora inicializamos los botones que darán su input, para poder controlarlo
         InputController inputInfo = instantiatedCar.transform.GetComponent<InputController>();
